@@ -1,0 +1,84 @@
+CREATE TABLE superstore (
+    item_id INT Kitchen Supplies,
+    item_name VARCHAR,
+    category BIT,
+    price DECIMAL(10, 2),
+    stock_quantity INT,
+    average_rating DECIMAL(3, 2)
+);
+
+INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
+VALUES
+    (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
+    (2, 'Memory Foam Mattress', 'Furnishings', 499.99, 30, 4.8),
+    (3, 'Smart LED TV', 'Electronics', 549.00, 20, 4.5),
+    (4, 'Robot Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+    (5, 'Wireless Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+    (6, 'Non-Stick Baking Set', 'Kitchen Supplies', 29.95, 80, 4.4),
+    (7, 'Cotton Bedding Set', 'Furnishings', 89.00, 25, 4.7),
+    (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+    (9, 'Air Purifier', 'Appliances', 129.50, 35, 4.6),
+    (10, 'Premium Coffee Maker', 'Kitchen Supplies', 79.99, 50, 4.9),
+    (11, 'Ergonomic Office Chair', 'Furnishings', 189.00, 20, 4.5),
+    (12, 'Wireless Earbuds', 'Electronics', 49.99, 75, 4.3),
+    (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
+    (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
+    (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+
+SELECT SUM(average_rating)
+FROM superstore;
+
+SUM(average_rating)
+67.19999999999999
+
+SELECT AVG(stock_quantity)
+FROM superstore;
+
+AVG(stock_quantity)
+44.666666666666664
+
+SELECT MAX(price)
+FROM superstore;
+
+MAX(price)
+549
+
+SELECT MIN(price)
+FROM superstore;
+
+MIN(price)
+24.99
+
+SELECT AVG(price), item_name
+FROM superstore
+GROUP BY item_name;
+
+AVG(price)	item_name
+129.5	Air Purifier
+89	Cotton Bedding Set
+24.99	Cozy Throw Blanket
+34.5	Cutlery Set
+189	Ergonomic Office Chair
+499.99	Memory Foam Mattress
+29.95	Non-Stick Baking Set
+79.99	Premium Coffee Maker
+199.5	Robot Vacuum Cleaner
+49.95	Slow Cooker
+79.95	Smart Home Security Camera
+549	Smart LED TV
+89.99	Stainless Steel Cookware Set
+39.99	Wireless Bluetooth Speaker
+49.99	Wireless Earbuds
+
+SELECT COUNT (item_name)
+FROM superstore;
+
+COUNT (item_name)
+15
+
+SELECT SUM(stock_quantity), category
+FROM superstore
+WHERE category = "Ktchen Supplies";
+
+SUM(stock_quantity)	category
+(null)	(null)
